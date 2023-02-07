@@ -4,14 +4,14 @@
 
 | Column             | Type   | Options                   |
 |--------------------|--------|---------------------------|
-| nickname           | string | null: false               |
+| nickname           | string | null: false, unique: true |
 | email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
+| encrypted_password | string | null: false, unique: true |
 | last_name          | string | null: false               |
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birth_date         | date   | null: false               |
+| birth_date         | string | null: false               |
 
 ### Association
 
@@ -39,7 +39,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :oder
 - has_many :comments
 
 
@@ -63,18 +63,18 @@
 
 ## addressesテーブル
 
-| Column        | Type       | Options                        |
-|---------------|------------|--------------------------------|
-| order         | references | null: false, foreign_key: true |
-| post_code     | string     | null: false                    |
-| prefecture_id | integer    | null: false                    |
-| city          | string     | null: false                    |
-| block         | string     | null: false                    |
-| building      | string     |                                |
-| phone_number  | string     | null: false                    |
+| Column        | Type       | Options     |
+|---------------|------------|-------------|
+| oder          | references | null: false |
+| post_code     | string     | null: false |
+| prefecture_id | integer    | null: false |
+| city          | string     | null: false |
+| block         | string     | null: false |
+| building      | string     |
+| phone_number  | string     | null: false |
 
 ### Association
-- belongs_to :order
+- belongs_to :oder
 
 
 
