@@ -4,14 +4,14 @@
 
 | Column             | Type   | Options                   |
 |--------------------|--------|---------------------------|
-| nickname           | string | null: false, unique: true |
+| nickname           | string | null: false,              |
 | email              | string | null: false, unique: true |
-| encrypted_password | string | null: false, unique: true |
+| encrypted_password | string | null: false,              |
 | last_name          | string | null: false               |
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birth_date         | string | null: false               |
+| birth_date         | date   | null: false               |
 
 ### Association
 
@@ -39,7 +39,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :oder
+- has_one :order
 - has_many :comments
 
 
@@ -65,7 +65,7 @@
 
 | Column        | Type       | Options     |
 |---------------|------------|-------------|
-| oder          | references | null: false |
+| order         | references | null: false |
 | post_code     | string     | null: false |
 | prefecture_id | integer    | null: false |
 | city          | string     | null: false |
@@ -74,7 +74,7 @@
 | phone_number  | string     | null: false |
 
 ### Association
-- belongs_to :oder
+- belongs_to :order
 
 
 
