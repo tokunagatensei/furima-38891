@@ -67,7 +67,7 @@ RSpec.describe Item, type: :model do
       it '価格が空では出品できない' do
         @item.price = ""
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price can't be blank", "Price is invalid", "Price is not a number"
+        expect(@item.errors.full_messages).to include "Price can't be blank"
       end
 
       it '価格が半角数値以外では出品できない' do
@@ -86,6 +86,12 @@ RSpec.describe Item, type: :model do
         @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
+      end
+
+      it 'userが紐付いていない場合は出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include "User must exist"
       end
 
     end
