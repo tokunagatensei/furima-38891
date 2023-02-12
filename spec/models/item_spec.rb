@@ -73,7 +73,6 @@ RSpec.describe Item, type: :model do
       it '価格が半角数値以外では出品できない' do
         @item.price = "１１１１"
         @item.valid?
-        binding.pry
         expect(@item.errors.full_messages).to include "Price is not a number"
       end
 
