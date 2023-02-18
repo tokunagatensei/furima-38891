@@ -85,7 +85,6 @@ RSpec.describe OrderAddress, type: :model do
       it 'トークンが空では登録できない' do
         @order_address.token = nil
         @order_address.valid?
-        binding.pry
         expect(@order_address.errors.full_messages).to include "Token can't be blank"
       end
 
