@@ -31,3 +31,6 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+# 「mainブランチ」をデプロイするための記述
+set :branch, 'main'
